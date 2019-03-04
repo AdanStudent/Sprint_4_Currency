@@ -58,7 +58,43 @@ namespace Sprint_4_Currency
 
         public static ICurrencyRepo CreateChange(double Amount)
         {
-            return null;
+            ICurrencyRepo total = new CurrencyRepo();
+            
+            while(Amount > 0)
+            {
+                if (Amount - 1 >= 0)
+                {
+                    total.AddCoin(new DollarCoin());
+                    Amount -= 1;
+                }
+                else if (Amount - .5 >= 0)
+                {
+                    total.AddCoin(new HalfDollar());
+                    Amount -= .5;
+                }
+                else if (Amount - 0.25 >= 0)
+                {
+                    total.AddCoin(new Quarter());
+                    Amount -= 0.25;
+                }
+                else if (Amount - 0.10 >= 0)
+                {
+                    total.AddCoin(new Dime());
+                    Amount -= .1;
+                }
+                else if (Amount - 0.05 >= 0)
+                {
+                    total.AddCoin(new Nickel());
+                    Amount -= 0.05;
+                }
+                else
+                {
+                    total.AddCoin(new Penny());
+                    Amount -= 0.01;
+                }
+            }
+
+            return total;
         }
 
         public static ICurrencyRepo CreateChange(double AmountTendered, double TotalCost)
