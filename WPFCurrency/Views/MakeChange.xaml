@@ -9,7 +9,16 @@
     <Grid>
         <StackPanel>
             <Label>Total Amount</Label>
-            <TextBox x:Name="txtTotalAmount"></TextBox>
+            <TextBox x:Name="txtTotalAmount" Text="{Binding TotalAmount}" Margin="0,0,401,0"></TextBox>
+            <Label>Coins in Repo</Label>
+            <ListView Height="100" ItemsSource="{Binding Coins}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Save" Margin="0,0,650,0"/>
         </StackPanel>
     </Grid>
 </UserControl>
