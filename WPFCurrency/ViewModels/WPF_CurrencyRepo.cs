@@ -11,7 +11,6 @@ namespace WPFCurrency.ViewModels
     {
         private CurrencyRepo currencyRepo;
 
-
         public ICommand Save { get; set; }
         public ICommand MakeChange { get; set; }
 
@@ -29,30 +28,26 @@ namespace WPFCurrency.ViewModels
             //when a save is loaded
             //load in coins
             //change total amount displayed
+
         }
 
         public List<ICoin> Coins
         {
             get
             {
-                return currencyRepo.Coins;
+                return this.currencyRepo.Coins;
             }
 
             set
             {
-                currencyRepo.Coins = value;
+                this.currencyRepo.Coins = value;
             }
         }
 
         public double TotalAmount
         {
-            get
-            {
-                return currencyRepo.TotalValue();
-            }
-
-            protected set { }
-
+            get;
+            set;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -72,8 +67,11 @@ namespace WPFCurrency.ViewModels
 
         private void ExcuteCommandChange(object parameter)
         {
-            //create change from the reop.
+            //create change from the repo.
+            ICurrencyRepo cRepo = CurrencyRepo.CreateChange(this.TotalAmount);
+            this.Coins = cRepo.Coins;
             //RaisePropertyChanged that it was saved
+            RaisePropertyChanged("Coins");
         }
 
         private bool CanExcuteCommandSave(object parameter)
@@ -144,7 +142,7 @@ namespace WPFCurrency.ViewModels
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            this._execute.Invoke(parameter);
         }
     }
 }

@@ -5,19 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCurrency.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="CurrencyRepo">
     <Grid>
         <StackPanel>
             <Label>Total Amount</Label>
-            <TextBox x:Name="txtTotalAmount" Text="{Binding TotalAmount}" Margin="0,0,401,0"></TextBox>
+            <TextBox x:Name="txtTotalAmount" Text="{Binding TotalAmount, Mode=TwoWay}" Margin="0,0,401,0"></TextBox>
+            <Button Content="MakeChange" Command="{Binding MakeChange}" Margin="0,0,600,0"/>
             <Label>Coins in Repo</Label>
-            <ListView Height="100" ItemsSource="{Binding Coins}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox Height="300" ItemsSource="{Binding Coins}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path = Name}"/>
+                            <TextBlock Text="{Binding Path = MonetaryValue}"/>
+                            <TextBlock Text="{Binding Path = MintMark}"/>
+                            <TextBlock Text="{Binding Path = Year}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Button Content="Save" Margin="0,0,650,0"/>
         </StackPanel>
     </Grid>

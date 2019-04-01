@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCurrency.ViewModels;
 
 namespace WPFCurrency
 {
@@ -20,21 +21,22 @@ namespace WPFCurrency
     /// </summary>
     public partial class MainWindow : Window
     {
-        ICurrencyRepo currencyRepo;
+
+        CurrencyRepo repo = new CurrencyRepo();
 
         public MainWindow()
         {
             InitializeComponent();
-            currencyRepo = new CurrencyRepo();
-            BindToUI();
+            //currencyRepo
+
         }
 
-        public void BindToUI()
+        private void MakeChange_Loaded(object sender, RoutedEventArgs e)
         {
-            currencyRepo.AddCoin(new Dime());
-            currencyRepo.AddCoin(new Quarter());
+            WPF_CurrencyRepo currencyRepo = new WPF_CurrencyRepo(repo);
 
-            txtTotalAmount.Text = currencyRepo.TotalValue().ToString();
+            this.DataContext = currencyRepo;
+            MakeChange.DataContext = currencyRepo;
         }
     }
 }
