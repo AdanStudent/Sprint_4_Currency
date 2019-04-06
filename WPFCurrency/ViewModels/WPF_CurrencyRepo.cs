@@ -10,9 +10,9 @@ using System.Windows.Input;
 
 namespace WPFCurrency.ViewModels
 {
-    class WPF_CurrencyRepo : DependencyObject, INotifyPropertyChanged
+    public class WPF_CurrencyRepo : DependencyObject, INotifyPropertyChanged
     {
-        private CurrencyRepo currencyRepo;
+        protected CurrencyRepo currencyRepo;
 
         public ICommand Save { get; set; }
         public ICommand MakeChange { get; set; }
@@ -55,7 +55,7 @@ namespace WPFCurrency.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
             {
@@ -109,7 +109,11 @@ namespace WPFCurrency.ViewModels
             this.canExcuteCommandChange = canExcuteCommandChange;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object parameter)
         {

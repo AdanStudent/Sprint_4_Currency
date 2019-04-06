@@ -56,8 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\WPF_CurrencyRepo.cs" />
+    <Compile Include="ViewModels\WPF_RepoUI.cs" />
     <Compile Include="Views\MakeChange.xaml.cs">
       <DependentUpon>MakeChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RepoUI.xaml.cs">
+      <DependentUpon>RepoUI.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +76,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MakeChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RepoUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

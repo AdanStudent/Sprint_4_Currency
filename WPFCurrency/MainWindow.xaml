@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <views:MakeChange x:Name="MakeChange" Loaded="MakeChange_Loaded"/>
+            <views:RepoUI x:Name="RepoUI" Loaded="RepoUI_Loaded"/>
         </StackPanel>
     </Grid>
 </Window>

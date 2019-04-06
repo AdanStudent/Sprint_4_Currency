@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCurrency.ViewModels;
+using WPFCurrency.Views;
 
 namespace WPFCurrency
 {
@@ -31,12 +32,20 @@ namespace WPFCurrency
 
         }
 
-        private void MakeChange_Loaded(object sender, RoutedEventArgs e)
+        private void RepoUI_Loaded(object sender, RoutedEventArgs e)
         {
             WPF_CurrencyRepo currencyRepo = new WPF_CurrencyRepo(repo);
 
             this.DataContext = currencyRepo;
-            MakeChange.DataContext = currencyRepo;
+            RepoUI.DataContext = currencyRepo;
         }
+
+        //private void MakeChange_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    WPF_CurrencyRepo currencyRepo = new WPF_CurrencyRepo(repo);
+
+        //    this.DataContext = currencyRepo;
+        //    MakeChange.DataContext = currencyRepo;
+        //}
     }
 }
