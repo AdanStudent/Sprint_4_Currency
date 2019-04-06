@@ -4,6 +4,8 @@ using System.Text;
 
 namespace WPFCurrency
 {
+    [Serializable]
+
     public class CurrencyRepo : ICurrencyRepo
     {
         public List<ICoin> Coins { get; set; }

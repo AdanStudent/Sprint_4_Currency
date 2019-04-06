@@ -4,6 +4,8 @@ using System.Text;
 
 namespace WPFCurrency
 {
+    [Serializable]
+
     public class Quarter : USCoin
     {
         public override int Year { get; }

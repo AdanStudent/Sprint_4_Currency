@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WPFCurrency
 {
+    [Serializable]
     public enum USCoinMintMark { P, D, S, W }
+    [Serializable]
     public abstract class USCoin : ICoin
     {
         public USCoinMintMark MintMark { get; set; }

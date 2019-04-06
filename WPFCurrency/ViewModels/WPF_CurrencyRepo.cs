@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Input;
 
@@ -25,7 +28,7 @@ namespace WPFCurrency.ViewModels
 
         private void CheckRepo()
         {
-            //when a save is loaded
+            //when a save is loaded from other view
             //load in coins
             //change total amount displayed
 
@@ -82,7 +85,11 @@ namespace WPFCurrency.ViewModels
         private void ExcuteCommandSave(object parameter)
         {
             //write code to save the repo
-            //RaisePropertyChanged that it was saved
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"...\RepoSaveData.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+
+            formatter.Serialize(stream, this.currencyRepo);
+            stream.Close();
         }
 
 

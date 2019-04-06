@@ -4,6 +4,8 @@ using System.Text;
 
 namespace WPFCurrency
 {
+    [Serializable]
+
     public abstract class Coin : ICoin
     {
         public abstract int Year { get; set; }
