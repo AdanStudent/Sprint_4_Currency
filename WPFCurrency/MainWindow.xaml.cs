@@ -34,10 +34,7 @@ namespace WPFCurrency
 
         private void RepoUI_Loaded(object sender, RoutedEventArgs e)
         {
-            WPF_CurrencyRepo currencyRepo = new WPF_RepoUI(repo);
 
-            this.DataContext = currencyRepo;
-            RepoUI.DataContext = currencyRepo;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

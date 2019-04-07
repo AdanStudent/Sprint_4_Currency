@@ -12,17 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCurrency.ViewModels;
 
 namespace WPFCurrency.Views
 {
     /// <summary>
     /// Interaction logic for RepoUI.xaml
     /// </summary>
+    /// 
+
     public partial class RepoUI : UserControl
     {
-        public RepoUI()
+        CurrencyRepo repo;
+        public RepoUI(CurrencyRepo r)
         {
+            this.repo = r;
             InitializeComponent();
+        }
+
+        private void ChangeViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            WPF_CurrencyRepo currencyRepo = new WPF_RepoUI(repo);
+
+            this.DataContext = currencyRepo;
+            .DataContext = currencyRepo;
         }
     }
 }
