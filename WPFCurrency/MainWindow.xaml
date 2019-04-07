@@ -9,7 +9,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <views:RepoUI x:Name="RepoUI" Loaded="RepoUI_Loaded"/>
+            <Button Content="Repo UI" Click="Button_Click"/>
+            <Button Content="Make Change"/>
+
         </StackPanel>
     </Grid>
 </Window>

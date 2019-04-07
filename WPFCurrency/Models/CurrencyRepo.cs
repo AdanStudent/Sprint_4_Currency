@@ -94,6 +94,7 @@ namespace WPFCurrency
                     total.AddCoin(new Penny());
                     Amount -= 0.01;
                 }
+                Math.Round(Amount, 2);
             }
 
             return total;

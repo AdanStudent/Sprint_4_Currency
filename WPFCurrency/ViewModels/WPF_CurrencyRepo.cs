@@ -12,7 +12,7 @@ namespace WPFCurrency.ViewModels
 {
     public class WPF_CurrencyRepo : DependencyObject, INotifyPropertyChanged
     {
-        protected CurrencyRepo currencyRepo;
+        public CurrencyRepo currencyRepo;
 
         public ICommand Save { get; set; }
         public ICommand MakeChange { get; set; }
@@ -49,8 +49,8 @@ namespace WPFCurrency.ViewModels
 
         public double TotalAmount
         {
-            get;
-            set;
+            get { return this.currencyRepo.TotalValue(); }
+            set { }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
