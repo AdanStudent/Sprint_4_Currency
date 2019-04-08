@@ -20,8 +20,10 @@ namespace WPFCurrency.Views
     /// </summary>
     public partial class MakeChange : UserControl
     {
-        public MakeChange()
+        CurrencyRepo repo;
+        public MakeChange(CurrencyRepo r)
         {
+            this.repo = r;
             InitializeComponent();
         }
 

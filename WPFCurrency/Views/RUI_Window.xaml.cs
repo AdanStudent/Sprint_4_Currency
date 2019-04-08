@@ -10,25 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFCurrency.ViewModels;
+
 
 namespace WPFCurrency.Views
 {
     /// <summary>
-    /// Interaction logic for RepoUI.xaml
+    /// Interaction logic for RUI_Window.xaml
     /// </summary>
-    /// 
-
-    public partial class RepoUI : UserControl
+    public partial class RUI_Window : Window
     {
         CurrencyRepo repo;
-        public RepoUI(CurrencyRepo r)
+        public RUI_Window(CurrencyRepo r)
         {
             this.repo = r;
             InitializeComponent();
         }
 
+        private void RUI_Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            WPF_RepoUI wPF_RepoUI = new WPF_RepoUI(this.repo);
+
+            this.DataContext = wPF_RepoUI;
+            CurrencyView.DataContext = wPF_RepoUI;
+        }
     }
 }

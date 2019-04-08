@@ -28,26 +28,18 @@ namespace WPFCurrency
         public MainWindow()
         {
             InitializeComponent();
-            //currencyRepo
-
-        }
-
-        private void RepoUI_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RepoUI repoUI = new RepoUI(repo);
+            RUI_Window repoUI = new RUI_Window(this.repo);
+            repoUI.Show();
         }
 
-        //private void MakeChange_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    WPF_CurrencyRepo currencyRepo = new WPF_CurrencyRepo(repo);
-
-        //    this.DataContext = currencyRepo;
-        //    MakeChange.DataContext = currencyRepo;
-        //}
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MC_Window mC_Window = new MC_Window(this.repo);
+            mC_Window.Show();
+        }
     }
 }

@@ -9,8 +9,14 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button Content="Repo UI" Click="Button_Click"/>
-            <Button Content="Make Change"/>
+            <Grid Height="116">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Repo UI" Click="Button_Click" Margin="10,26,10,54"/>
+                <Button Content="Make Change" Margin="10,26,10,54" Grid.Column="1" Click="Button_Click_1"/>
+            </Grid>
 
         </StackPanel>
     </Grid>
