@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="RUI_Window" Height="450" Width="800">
     <Grid>
-        <views:RepoUI x:Name="CurrencyView" Loaded="RUI_Window_Loaded" Height="419"/>
+        <views:RepoUI x:Name="RepoView" Loaded="RUI_Window_Loaded" Height="419"/>
     </Grid>
 </Window>

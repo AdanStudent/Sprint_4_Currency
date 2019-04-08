@@ -28,10 +28,14 @@ namespace WPFCurrency.ViewModels
 
         private void CheckRepo()
         {
-            //when a save is loaded from other view
-            //load in coins
-            //change total amount displayed
+            //Load repo from file
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"...\RepoSaveData.txt", FileMode.Open, FileAccess.Read, FileShare.None);
+            CurrencyRepo temp = (CurrencyRepo)formatter.Deserialize(stream);
+            stream.Close();
 
+            this.currencyRepo = temp;
+            RaisePropertyChanged("TotalAmount");
         }
 
         public List<ICoin> Coins
@@ -50,7 +54,7 @@ namespace WPFCurrency.ViewModels
         public double TotalAmount
         {
             get { return this.currencyRepo.TotalValue(); }
-            set { }
+            set { this.currencyRepo = (CurrencyRepo)CurrencyRepo.CreateChange(value); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

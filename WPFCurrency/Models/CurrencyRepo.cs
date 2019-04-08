@@ -89,12 +89,13 @@ namespace WPFCurrency
                     total.AddCoin(new Nickel());
                     Amount -= 0.05;
                 }
-                else
+                else if (Amount - 0.01 >= 0)
                 {
                     total.AddCoin(new Penny());
                     Amount -= 0.01;
                 }
-                Math.Round(Amount, 2);
+
+                Amount = Math.Round(Amount, 2);
             }
 
             return total;

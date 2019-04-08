@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPFCurrency.ViewModels;
 
 namespace WPFCurrency.Views
 {
@@ -28,6 +27,20 @@ namespace WPFCurrency.Views
         {
             this.repo = r;
             InitializeComponent();
+        }
+
+        public RepoUI()
+        {
+
+           InitializeComponent();
+
+        }
+
+        public void SetRepo(CurrencyRepo r)
+        {
+
+            this.repo = r;
+
         }
 
     }
